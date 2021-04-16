@@ -13,6 +13,10 @@ class Rol extends Model
 
     protected $fillable = ['nombre'];
 
+    /**
+     * Regresa la información de todos los usuarios asociados a un rol.
+     * @return HasMany
+     */
     public function usuarios(): HasMany {
         return $this->hasMany(Usuario::class);
     }

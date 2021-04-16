@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Usuario extends Model
@@ -23,11 +24,19 @@ class Usuario extends Model
         'rol_id'
     ];
 
-    public function rol() {
+    /**
+     * Regresa la información del modelo rol asociado al usuario.
+     * @return BelongsTo
+     */
+    public function rol(): BelongsTo {
         return $this->belongsTo(Rol::class);
     }
 
-    public function carrera() {
+    /**
+     * Regresa la información del modelo carrera asociado al usuario.
+     * @return BelongsTo
+     */
+    public function carrera(): BelongsTo {
         return $this->belongsTo(Carrera::class);
     }
 }

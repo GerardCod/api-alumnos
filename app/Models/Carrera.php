@@ -16,6 +16,10 @@ class Carrera extends Model
 
     protected $fillable = ['nombre'];
 
+    /**
+     * Regresa la información de todos los modelos de usuario asociados a una carrera.
+     * @return HasMany
+     */
     public function usuarios(): HasMany {
         return $this->hasMany(Usuario::class);
     }
