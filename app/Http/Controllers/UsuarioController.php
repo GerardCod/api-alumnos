@@ -51,4 +51,18 @@ class UsuarioController extends Controller
         $user = Usuario::with(['rol', 'carrera'])->where('id','=',$id)->get()[0];
         return response($user, Response::HTTP_OK);
     }
+
+
+    /**
+     * Elimina un usuario de la base de datos.
+     * @param int $id ID del usuario.
+     * @return Response cuerpo de la respuesta.
+     */
+    public function destroy(int $id): Response {
+        $rowsAffected = Usuario::destroy($id);
+        if ($rowsAffected > 0) {
+            return response(['mensaje' => 'Eliminación del usuario exitosa'], Response::HTTP_OK);
+        }
+        return response(['mensaje' => 'No se pudo borrar al usuario'], Response::HTTP_INTERNAL_SERVER_ERROR);
+    }
 }
