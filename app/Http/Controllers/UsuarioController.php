@@ -32,4 +32,12 @@ class UsuarioController extends Controller
         $user->update($validData);
         return response($user, Response::HTTP_OK);
     }
+
+    /**
+     * Regresa la lista de usuarios almacenados en la base de datos.
+     * @return Response cuerpo de la respuesta.
+     */
+    public function index(): Response {
+        return response(Usuario::all(), Response::HTTP_OK);
+    }
 }
