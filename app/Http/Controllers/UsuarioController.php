@@ -23,13 +23,12 @@ class UsuarioController extends Controller
     /**
      * Actualiza un usuario.
      * @param ActualizarUsuarioRequest $request cuerpo de la petición
-     * @param string $matricula matricula del usuario
+     * @param int $id ID del usuario
      * @return Response cuerpo de la respuesta.
      */
-    public function update(ActualizarUsuarioRequest $request, string $matricula): Response {
+    public function update(ActualizarUsuarioRequest $request, int $id): Response {
         $validData = $request->validated();
-        $users = Usuario::query()->where('matricula', '=', $matricula)->get();
-        $user = $users[0];
+        $user = Usuario::find($id);
         $user->update($validData);
         return response($user, Response::HTTP_OK);
     }

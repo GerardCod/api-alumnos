@@ -11,6 +11,8 @@ class Usuario extends Model
     use HasFactory;
     use SoftDeletes;
 
+    protected $guarded = ['id'];
+
     protected $fillable = [
         'matricula',
         'nombre',
