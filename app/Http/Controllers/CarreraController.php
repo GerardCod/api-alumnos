@@ -12,7 +12,7 @@ class CarreraController extends Controller
     /**
      * Crea una carrera.
      * @param CrearCarrera $request
-     * @return Response
+     * @return Response cuerpo de la respuesta.
      */
     public function store(CrearCarrera $request): Response {
         $carrera = Carrera::create($request->only('nombre'));
@@ -21,9 +21,22 @@ class CarreraController extends Controller
 
     /**
      * Regresa la lista de carreras almacenadas en la base de datos.
-     * @return Response
+     * @return Response cuerpo de la respuesta.
      */
     public function index(): Response {
         return response(Carrera::all(), Response::HTTP_OK);
+    }
+
+    /**
+     * Actualiza una carrera por id.
+     * @param CrearCarrera $request cuerpo de la petición.
+     * @param int $id Id de la carrera
+     * @return Response cuerpo de la respuesta.
+     */
+    public function update(CrearCarrera $request, int $id): Response {
+        $carrera = Carrera::find($id);
+        $data = $request->only('nombre');
+        $carrera->update($data);
+        return response($carrera, Response::HTTP_OK);
     }
 }
