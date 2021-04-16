@@ -24,7 +24,13 @@ class CrearUsuarioRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'matricula' => 'required|numeric',
+            'nombre' => 'required',
+            'a_paterno' => 'required',
+            'a_materno' => 'required',
+            'cuatrimestre' => 'required',
+            'rol_id' => 'required|numeric',
+            'carrera_id' => 'required|numeric',
         ];
     }
 }
