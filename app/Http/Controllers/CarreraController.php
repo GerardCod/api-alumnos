@@ -49,4 +49,13 @@ class CarreraController extends Controller
         Carrera::destroy($id);
         return response(['mensaje' => 'La carrera ha sido eliminada'], Response::HTTP_OK);
     }
+
+    /**
+     * Regresa la información de una carrera por id.
+     * @param int $id ID de la carrera.
+     * @return Response cuerpo da la respuesta.
+     */
+    public function show(int $id): Response {
+        return response(Carrera::find($id), Response::HTTP_OK);
+    }
 }
