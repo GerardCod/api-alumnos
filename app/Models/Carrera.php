@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Carrera extends Model
@@ -14,4 +15,8 @@ class Carrera extends Model
     protected $guarded = ['id'];
 
     protected $fillable = ['nombre'];
+
+    public function usuarios(): HasMany {
+        return $this->hasMany(Usuario::class);
+    }
 }

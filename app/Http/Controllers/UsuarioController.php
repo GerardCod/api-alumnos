@@ -38,6 +38,7 @@ class UsuarioController extends Controller
      * @return Response cuerpo de la respuesta.
      */
     public function index(): Response {
-        return response(Usuario::all(), Response::HTTP_OK);
+        $users = Usuario::with('rol', 'carrera')->get();
+        return response($users, Response::HTTP_OK);
     }
 }
