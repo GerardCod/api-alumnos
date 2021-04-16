@@ -25,6 +25,12 @@ class ActualizarUsuarioRequest extends FormRequest
     {
         return [
             //
+            'nombre' => 'required',
+            'a_paterno' => 'required',
+            'a_materno' => 'required',
+            'cuatrimestre' => 'required',
+            'rol_id' => 'required|numeric',
+            'carrera_id' => 'required|numeric'
         ];
     }
 }
