@@ -39,4 +39,14 @@ class CarreraController extends Controller
         $carrera->update($data);
         return response($carrera, Response::HTTP_OK);
     }
+
+    /**
+     * Elimina una carrera por id.
+     * @param int $id Id de la carrera
+     * @return Response cuerpo de la respuesta.
+     */
+    public function destroy(int $id): Response {
+        Carrera::destroy($id);
+        return response(['mensaje' => 'La carrera ha sido eliminada'], Response::HTTP_OK);
+    }
 }
