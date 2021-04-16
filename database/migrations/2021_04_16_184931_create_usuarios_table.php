@@ -23,6 +23,7 @@ class CreateUsuariosTable extends Migration
             $table->foreignId('carrera_id')->constrained()->onUpdate('cascade')->onDelete('no action');
             $table->foreignId('rol_id')->constrained('rols')->onUpdate('cascade')->onDelete('no action');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
