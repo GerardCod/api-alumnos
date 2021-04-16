@@ -22,4 +22,12 @@ class Usuario extends Model
         'carrera_id',
         'rol_id'
     ];
+
+    public function rol() {
+        return $this->belongsTo(Rol::class);
+    }
+
+    public function carrera() {
+        return $this->belongsTo(Carrera::class);
+    }
 }
