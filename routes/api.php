@@ -16,4 +16,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 //Crea las rutas para el recurso roles incluye (GET, POST, PUT, DELETE)
-Route::apiResource('roles', RolController::class);
+Route::get('v1/roles', [RolController::class, 'index']);
