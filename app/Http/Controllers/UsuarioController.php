@@ -41,4 +41,14 @@ class UsuarioController extends Controller
         $users = Usuario::with('rol', 'carrera')->get();
         return response($users, Response::HTTP_OK);
     }
+
+    /**
+     * Regresa la información de un usuario por id.
+     * @param int $id Id del usuario.
+     * @return Response cuerpo de la respuesta.
+     */
+    public function show(int $id): Response {
+        $user = Usuario::with(['rol', 'carrera'])->where('id','=',$id)->get()[0];
+        return response($user, Response::HTTP_OK);
+    }
 }
