@@ -14,6 +14,12 @@ class Evento extends Model
 
     protected $fillable = ['inicio', 'fin', 'fecha', 'pc_id', 'laboratorio_id'];
 
+    protected $casts = [
+        'inicio' => 'time',
+        'fin' => 'time',
+        'fecha' => 'date'
+    ];
+
     /**
      * Regresa la información de la entidad PC asociada.
      * @return BelongsTo
