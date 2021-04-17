@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CarreraController;
+use App\Http\Controllers\EventoController;
 use App\Http\Controllers\LaboratorioController;
 use App\Http\Controllers\PCController;
 use App\Http\Controllers\ProgramaController;
@@ -43,5 +44,7 @@ Route::group(['middleware' => 'auth:sanctum'], function() {
     Route::put('v1/usuarios/{id}', [UsuarioController::class, 'update']);
     Route::get('v1/usuarios/{id}', [UsuarioController::class, 'show']);
     Route::delete('v1/usuarios/{id}', [UsuarioController::class, 'show']);
-});
 
+    //Rutas protegidas de eventos.
+    Route::get('v1/eventos', [EventoController::class, 'index']);
+});
