@@ -53,4 +53,17 @@ class PCController extends Controller
     public function show(int $id): Response {
         return response(PC::find($id), Response::HTTP_OK);
     }
+
+    /**
+     * Elimina una pc por ID
+     * @param int $id ID de la pc.
+     * @return Response cuerpo de la respuesta.
+     */
+    public function destroy(int $id): Response {
+        $rows = PC::destroy($id);
+        if ($rows > 0) {
+            return response(['mensaje' => 'PC eliminada'], Response::HTTP_OK);
+        }
+        return response(['mensaje' => 'Problemas para eliminar la PC'], Response::HTTP_INTERNAL_SERVER_ERROR);
+    }
 }
