@@ -39,4 +39,13 @@ class LaboratorioController extends Controller
         $lab->update($validData);
         return response($lab, Response::HTTP_OK);
     }
+
+    /**
+     * Regresa la información de un laboratorio por id.
+     * @param int $id ID del laboratorio.
+     * @return Response cuerpo de la respuesta.
+     */
+    public function show(int $id): Response {
+        return response(Laboratorio::find($id), Response::HTTP_OK);
+    }
 }
