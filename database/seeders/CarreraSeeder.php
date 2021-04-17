@@ -15,10 +15,13 @@ class CarreraSeeder extends Seeder
     public function run()
     {
         //
-        Carrera::create(['nombre' => 'Tecnolpgías de la información']);
-        Carrera::create(['nombre' => 'Mecatrónica']);
+        Carrera::create(['nombre' => 'Tecnologías de la información']);
         Carrera::create(['nombre' => 'Desarrollo de negocios']);
+        Carrera::create(['nombre' => 'Mecatrónica']);
+        Carrera::create(['nombre' => 'Procesos Alimentarios']);
         Carrera::create(['nombre' => 'Energías renovables']);
-        Carrera::create(['nombre' => 'Industriales']);
+        Carrera::create(['nombre' => 'Agricultura Sustentable y protegida']);
+        Carrera::create(['nombre' => 'Enfermería']);
+        Carrera::create(['nombre' => 'Procesos Industriales']);
     }
 }
