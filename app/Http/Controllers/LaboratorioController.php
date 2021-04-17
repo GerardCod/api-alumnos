@@ -18,4 +18,12 @@ class LaboratorioController extends Controller
         $lab = Laboratorio::create($validData);
         return response($lab, Response::HTTP_CREATED);
     }
+
+    /**
+     * Regresa la lista de laboratorios en la base de datos.
+     * @return Response cuerpo de la respuesta.
+     */
+    public function index(): Response {
+        return response(Laboratorio::all(), Response::HTTP_OK);
+    }
 }
