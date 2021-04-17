@@ -17,9 +17,10 @@ class CreateEventosTable extends Migration
             $table->id();
             $table->time('inicio');
             $table->time('fin');
-            $table->date('fecha');
             $table->foreignId('pc_id')->constrained('p_c_s');
             $table->foreignId('laboratorio_id')->constrained('laboratorios');
+            $table->foreignId('usuario_id')->constrained('usuarios');
+            $table->foreignId('programa_id')->constrained('programas');
             $table->timestamps();
             $table->softDeletes();
         });

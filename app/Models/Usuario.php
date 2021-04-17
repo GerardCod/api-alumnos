@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Laravel\Sanctum\HasApiTokens;
 
@@ -39,5 +40,13 @@ class Usuario extends Model
      */
     public function carrera(): BelongsTo {
         return $this->belongsTo(Carrera::class);
+    }
+
+    /**
+     * Regresa la lista de eventos relacionados con el usuario.
+     * @return HasMany
+     */
+    public function eventos(): HasMany {
+        return $this->hasMany(Evento::class);
     }
 }

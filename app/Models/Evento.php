@@ -12,12 +12,11 @@ class Evento extends Model
 
     protected $guarded = ['id'];
 
-    protected $fillable = ['inicio', 'fin', 'fecha', 'pc_id', 'laboratorio_id'];
+    protected $fillable = ['inicio', 'fin', 'fecha', 'pc_id', 'laboratorio_id', 'usuario_id', 'programa_id'];
 
     protected $casts = [
         'inicio' => 'time',
         'fin' => 'time',
-        'fecha' => 'date'
     ];
 
     /**
@@ -34,5 +33,21 @@ class Evento extends Model
      */
     public function laboratorio(): BelongsTo {
         return $this->belongsTo(Laboratorio::class);
+    }
+
+    /**
+     * Regresa la información del usuario asignado.
+     * @return BelongsTo
+     */
+    public function usuario(): BelongsTo {
+        return $this->belongsTo(Usuario::class);
+    }
+
+    /**
+     * Regresa la información del programa asignado.
+     * @return BelongsTo
+     */
+    public function programa(): BelongsTo {
+        return $this->belongsTo(Programa::class);
     }
 }
