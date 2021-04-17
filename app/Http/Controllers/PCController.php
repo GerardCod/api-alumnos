@@ -15,7 +15,8 @@ class PCController extends Controller
      * @param PCRequest $request cuerpo de la petición.
      * @return Response cuerpo de la respuesta.
      */
-    public function store(PCRequest $request): Response {
+    public function store(PCRequest $request): Response
+    {
         $validData = $request->validated();
         $pc = PC::create($validData);
         return response($pc, Response::HTTP_CREATED);
@@ -25,7 +26,22 @@ class PCController extends Controller
      * Regresa la lista de pc almacenadas en la base de datos.
      * @return Response cuerpo de la respuesta.
      */
-    public function index(): Response {
+    public function index(): Response
+    {
         return response(PC::all(), Response::HTTP_OK);
+    }
+
+    /**
+     * Actualiza la información de una pc.
+     * @param PCRequest $request cuerpo de la petición
+     * @param int $id ID de la PC.
+     * @return Response cuerpo de la respuesta.
+     */
+    public function update(PCRequest $request, int $id): Response
+    {
+        $pc = PC::find($id);
+        $validData = $request->validated();
+        $pc->update($validData);
+        return response($pc, Response::HTTP_OK);
     }
 }
