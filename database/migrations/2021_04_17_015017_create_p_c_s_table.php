@@ -13,7 +13,7 @@ class CreatePCSTable extends Migration
      */
     public function up()
     {
-        Schema::create('pcs', function (Blueprint $table) {
+        Schema::create('p_c_s', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
             $table->timestamps();
@@ -28,6 +28,6 @@ class CreatePCSTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pcs');
+        Schema::dropIfExists('p_c_s');
     }
 }
