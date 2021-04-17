@@ -39,4 +39,17 @@ class LaboratorioController extends Controller
         $lab->update($validData);
         return response($lab, Response::HTTP_OK);
     }
+
+    /**
+     * Elimina un laboratorio por id.
+     * @param int $id id del laboratorio.
+     * @return Response cuerpo de la respuesta.
+     */
+    public function destroy(int $id): Response {
+        $rows = Laboratorio::destroy($id);
+        if ($rows > 0) {
+            return response(['mensaje' => 'Laboratorio eliminado'], Response::HTTP_OK);
+        }
+        return response(['mensaje' => 'Problemas al eliminar el laboratorio'], Response::HTTP_INTERNAL_SERVER_ERROR);
+    }
 }
