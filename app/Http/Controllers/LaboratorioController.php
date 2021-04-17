@@ -26,4 +26,17 @@ class LaboratorioController extends Controller
     public function index(): Response {
         return response(Laboratorio::all(), Response::HTTP_OK);
     }
+
+    /**
+     * Actualiza un laboratorio.
+     * @param LaboratorioRequest $request cuerpo de la petición.
+     * @param int $id id del laboratorio.
+     * @return Response cuerpo de la respuesta.
+     */
+    public function update(LaboratorioRequest $request, int $id): Response {
+        $lab = Laboratorio::find($id);
+        $validData = $request->validated();
+        $lab->update($validData);
+        return response($lab, Response::HTTP_OK);
+    }
 }
