@@ -20,4 +20,12 @@ class PCController extends Controller
         $pc = PC::create($validData);
         return response($pc, Response::HTTP_CREATED);
     }
+
+    /**
+     * Regresa la lista de pc almacenadas en la base de datos.
+     * @return Response cuerpo de la respuesta.
+     */
+    public function index(): Response {
+        return response(PC::all(), Response::HTTP_OK);
+    }
 }
