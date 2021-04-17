@@ -29,9 +29,9 @@ class ProgramaController extends Controller
 
     /**
      * Actualiza un programa.
-     * @param ProgramaRequest $request
-     * @param int $id
-     * @return Response
+     * @param ProgramaRequest $request cuerpo de la petición
+     * @param int $id ID del programa.
+     * @return Response cuerpo de la respuesta.
      */
     public function update(ProgramaRequest $request, int $id): Response {
         $validData = $request->validated();
@@ -39,4 +39,15 @@ class ProgramaController extends Controller
         $program->update($validData);
         return response($program, Response::HTTP_OK);
     }
+
+    /**
+     * Regresa la información de un programa.
+     * @param int $id ID del programa.
+     * @return Response cuerpo de la respuesta.
+     */
+    public function show(int $id): Response {
+        $programa = Programa::find($id);
+        return response($programa, Response::HTTP_OK);
+    }
+
 }
