@@ -13,7 +13,7 @@ class PCRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -25,6 +25,7 @@ class PCRequest extends FormRequest
     {
         return [
             //
+            'nombre' => 'required'
         ];
     }
 }
