@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CarreraController;
 use App\Http\Controllers\LaboratorioController;
+use App\Http\Controllers\PCController;
 use App\Http\Controllers\RolController;
 use App\Http\Controllers\UsuarioController;
 use Illuminate\Support\Facades\Route;
@@ -22,3 +23,4 @@ Route::get('v1/roles', [RolController::class, 'index']);
 Route::apiResource('v1/carreras', CarreraController::class);
 Route::apiResource('v1/usuarios', UsuarioController::class);
 Route::apiResource('v1/laboratorios', LaboratorioController::class);
+Route::apiResource('v1/pcs', PCController::class);
