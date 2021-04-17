@@ -50,4 +50,16 @@ class ProgramaController extends Controller
         return response($programa, Response::HTTP_OK);
     }
 
+    /**
+     * Elimina un programa por id.
+     * @param int $id ID del programa.
+     * @return Response cuerpo de la respuesta.
+     */
+    public function destroy(int $id): Response {
+        $rows = Programa::destroy($id);
+        if ($rows > 0) {
+            return response(['mensaje' => 'Programa eliminado'], Response::HTTP_OK);
+        }
+        return response(['mensaje' => 'Problemas para eliminar el programa'], Response::HTTP_INTERNAL_SERVER_ERROR);
+    }
 }
