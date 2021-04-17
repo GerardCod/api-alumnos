@@ -24,7 +24,7 @@ class LoginRequest extends FormRequest
     public function rules()
     {
         return [
-            'matricula' => 'required|numeric|size:10'
+            'matricula' => 'required|numeric'
         ];
     }
 }
