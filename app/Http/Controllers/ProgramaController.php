@@ -26,4 +26,17 @@ class ProgramaController extends Controller
     public function index(): Response {
         return response(Programa::all(), Response::HTTP_OK);
     }
+
+    /**
+     * Actualiza un programa.
+     * @param ProgramaRequest $request
+     * @param int $id
+     * @return Response
+     */
+    public function update(ProgramaRequest $request, int $id): Response {
+        $validData = $request->validated();
+        $program = Programa::find($id);
+        $program->update($validData);
+        return response($program, Response::HTTP_OK);
+    }
 }
