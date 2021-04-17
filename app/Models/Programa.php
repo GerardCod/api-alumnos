@@ -10,4 +10,11 @@ class Programa extends Model
 {
     use HasFactory;
     use SoftDeletes;
+
+    protected $guarded = ['id'];
+
+    protected $fillable = [
+        'nombre',
+        'nombre_ejecucion'
+    ];
 }
