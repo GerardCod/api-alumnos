@@ -15,8 +15,8 @@ class Evento extends Model
     protected $fillable = ['inicio', 'fin', 'fecha', 'pc_id', 'laboratorio_id', 'usuario_id', 'programa_id'];
 
     protected $casts = [
-        'inicio' => 'time',
-        'fin' => 'time',
+        'inicio' => 'timestamp',
+        'fin' => 'timestamp',
     ];
 
     /**

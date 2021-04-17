@@ -13,6 +13,7 @@ class EventoController extends Controller
      */
     public function index(): Response
     {
-        return response(Evento::all(), Response::HTTP_OK);
+        $events = Evento::with('pc','laboratorio', 'usuario', 'programa')->get();
+        return response($events, Response::HTTP_OK);
     }
 }
