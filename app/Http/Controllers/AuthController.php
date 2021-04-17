@@ -16,8 +16,12 @@ class AuthController extends Controller
      */
     public function login(LoginRequest $request): Response {
         $data = $request->validated();
-        $user = Usuario::query()->where('matricula', '=', $data['matricula'])->get()[0];
-        $token = $user->createToken('access_token');
+        $users = Usuario::query()->where('matricula', '=', $data['matricula'])->get();
+        if (count($users) == 0) {
+            return response(['mensaje' => 'El usuario con la matricula '.$data['matricula'].' no existe'], Response::HTTP_INTERNAL_SERVER_ERROR);
+        }
+
+        $token = $users[0]->createToken('access_token');
         return response(['access_token' => $token->plainTextToken], Response::HTTP_CREATED);
     }
 
