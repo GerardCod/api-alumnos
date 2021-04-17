@@ -44,4 +44,13 @@ class PCController extends Controller
         $pc->update($validData);
         return response($pc, Response::HTTP_OK);
     }
+
+    /**
+     * Obtiene la información de una pc por ID
+     * @param int $id ID de una PC.
+     * @return Response cuerpo de la respuesta.
+     */
+    public function show(int $id): Response {
+        return response(PC::find($id), Response::HTTP_OK);
+    }
 }
