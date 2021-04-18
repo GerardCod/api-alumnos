@@ -43,7 +43,7 @@ Route::group(['middleware' => 'auth:sanctum'], function() {
     Route::get('v1/usuarios', [UsuarioController::class, 'index']);
     Route::put('v1/usuarios/{id}', [UsuarioController::class, 'update']);
     Route::get('v1/usuarios/{id}', [UsuarioController::class, 'show']);
-    Route::delete('v1/usuarios/{id}', [UsuarioController::class, 'show']);
+    Route::delete('v1/usuarios/{id}', [UsuarioController::class, 'destroy']);
 
     //Rutas protegidas de eventos.
     Route::get('v1/eventos', [EventoController::class, 'index']);
