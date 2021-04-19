@@ -22,7 +22,7 @@ class AuthController extends Controller
         }
 
         $token = $users[0]->createToken('access_token');
-        return response(['access_token' => $token->plainTextToken], Response::HTTP_CREATED);
+        return response(['access_token' => $token->plainTextToken, 'user' => $users[0]], Response::HTTP_CREATED);
     }
 
 }
